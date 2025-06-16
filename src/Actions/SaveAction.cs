@@ -10,7 +10,7 @@ using SkiaSharp;
 
 namespace Imago;
 
-public class SaveImageAction : IAction {
+public class SaveAction : IAction {
     public static string Identifier => "save";
 
     Dictionary<string, string> vars = null!;
