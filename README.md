@@ -57,13 +57,13 @@ Currently following actions are available:
 # Example usage
 
 ```sh
-# Single file, convert jpeg to loseless webp
+# Single file, load a jpeg file, save as loseless webp
 imago image.jpg run load save?format=webp
 
-# Batch (on current dir), convert jpeg to loseless webp
+# Batch (on current dir), load jpeg files, save as loseless webp
 imago foreach *.jpg run load save?format=webp
 
-# Batch (on other dir), resize by width of 320, convert jpeg to lossy webp with quality of 80
+# Batch (on other dir), load jpeg files, resize by width of 320, save as lossy webp with quality of 80
 imago foreach "C:\some\path" *.jpg run load resize?w=320 save?format=webp?quality=80
 ```
 
