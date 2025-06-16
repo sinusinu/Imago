@@ -14,6 +14,7 @@ public class DisposableObjectHandler : IDisposable {
     }
 
     public void Add(string key, IDisposable obj) {
+        if (disposableObjects.ContainsKey(key)) disposableObjects.Remove(key);
         disposableObjects.Add(key, obj);
     }
 
