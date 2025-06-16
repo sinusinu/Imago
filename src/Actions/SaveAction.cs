@@ -15,7 +15,6 @@ public class SaveAction : IAction {
 
     Dictionary<string, string> vars = null!;
 
-    private string path = null!;
     private string format = null!;
     private int quality = 100;
 
