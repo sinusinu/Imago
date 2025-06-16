@@ -7,7 +7,7 @@ using SkiaSharp;
 
 namespace Imago;
 
-public class LoadImageAction : IAction {
+public class LoadAction : IAction {
     public static string Identifier => "load";
 
     private string path = null!;
