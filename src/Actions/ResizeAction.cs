@@ -15,12 +15,12 @@ public class ResizeAction : IAction {
     bool filter = true;
 
     public void Configure(Dictionary<string, string> options, Dictionary<string, string> vars) {
-        if (options.ContainsKey("w")) {
-            targetWidth = int.Parse(options["w"]);
+        if (options.ContainsKey("width")) {
+            targetWidth = int.Parse(options["width"]);
             if (targetWidth < 1) throw new Exception("Width must be positive");
         }
-        if (options.ContainsKey("h")) {
-            targetHeight = int.Parse(options["h"]);
+        if (options.ContainsKey("height")) {
+            targetHeight = int.Parse(options["height"]);
             if (targetHeight < 1) throw new Exception("Height must be positive");
         }
 
