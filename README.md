@@ -48,10 +48,15 @@ Currently following actions are available:
   - Either one of `w` or `h` must be given
   - `filter=true` (default) will use bilinear filtering, `filter=false` will use nn filtering
 
+- Rotate
+  - Identifier: `rotate`
+  - Options:
+    - `angle`: One of `90`, `180`, `270`
+
 - Save
   - Identifier: `save`
   - Options:
-    - `format`: One of `bmp`, `jpg`, `gif`, `png`, `webp`
+    - `format`: One of `bmp`, `jpg`, `gif`, `png`, `webp`, optional (warning: defaults to the extension of the input file - which results to overwrite!)
     - `quality`: Used if set format uses quality option (is lossy format), integer, optional (default: 100)
 
 # Example usage
