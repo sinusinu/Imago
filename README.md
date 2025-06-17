@@ -40,12 +40,12 @@ Currently following actions are available:
 - Resize
   - Identifier: `resize`
   - Options:
-    - `w`: Width, positive integer, optional
-    - `h`: Height, positive integer, optional
+    - `width`: New width, positive integer, optional
+    - `height`: New height, positive integer, optional
     - `filter`: Use bilinear filter, true or false, optional
-  - If both `w` and `h` are given, aspect ratio will be ignored
-  - If only one of `w` or `h` is given, aspect ratio will be kept and missing axis will be calculated
-  - Either one of `w` or `h` must be given
+  - If both `width` and `height` are given, aspect ratio will be ignored
+  - If only one of `width` or `height` is given, aspect ratio will be kept and missing axis will be calculated
+  - Either one of `width` or `height` must be given
   - `filter=true` (default) will use bilinear filtering, `filter=false` will use nn filtering
 
 - Rotate
@@ -69,7 +69,7 @@ imago image.jpg run load save?format=webp
 imago foreach *.jpg run load save?format=webp
 
 # Batch (on other dir), load jpeg files, resize by width of 320, save as lossy webp with quality of 80
-imago foreach "C:\some\path" *.jpg run load resize?w=320 save?format=webp?quality=80
+imago foreach "C:\some\path" *.jpg run load resize?width=320 save?format=webp?quality=80
 ```
 
 # License
