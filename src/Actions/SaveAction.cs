@@ -22,9 +22,17 @@ public class SaveAction : IAction {
     private SKEncodedImageFormat[] skFormats = [ SKEncodedImageFormat.Bmp, SKEncodedImageFormat.Jpeg, SKEncodedImageFormat.Gif, SKEncodedImageFormat.Png, SKEncodedImageFormat.Webp ];
 
     public void Configure(Dictionary<string, string> options, Dictionary<string, string> vars) {
-        if (!options.ContainsKey("format")) throw new Exception("Format is not provided");
-        if (!supportedFormats.Contains(options["format"].ToLower(CultureInfo.InvariantCulture))) throw new Exception($"Format {options["format"]} is not supported");
-        format = options["format"].ToLower(CultureInfo.InvariantCulture);
+        if (options.ContainsKey("format")) {
+            var optionFormat = options["format"].ToLower(CultureInfo.InvariantCulture);
+            if (!supportedFormats.Contains(optionFormat)) throw new Exception($"Format {options["format"]} is not supported");
+            format = optionFormat;
+        } else {
+            // deduce format from extension
+            var originFormat = vars["ext"].ToLower(CultureInfo.InvariantCulture);
+            if (originFormat == "jpeg") originFormat = "jpg";
+            if (!supportedFormats.Contains(originFormat)) throw new Exception($"Format {originFormat} is not supported?");
+            format = originFormat;
+        }
         
         if (options.ContainsKey("quality")) quality = int.Parse(options["quality"]);
 
