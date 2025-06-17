@@ -124,7 +124,9 @@ class Program {
 
             vars["full_path"] = file;
             vars["full_path_no_ext"] = Path.GetDirectoryName(file) + Path.DirectorySeparatorChar + Path.GetFileNameWithoutExtension(file);
-            vars["ext"] = Path.GetExtension(file);
+            var ext = Path.GetExtension(file);
+            if (ext is not null && ext.Length > 1) ext = ext.Substring(1); else ext = "";
+            vars["ext"] = ext;
 
             foreach ((var a, var o) in actionsToExecute) {
                 Dictionary<string, string> opts = new();
